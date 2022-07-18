@@ -1,7 +1,7 @@
 import Ships from './ships';
 
 describe('Ships objects', () => {
-  const testShip = new Ships(2, [3, 4, 5], [], false);
+  const testShip = new Ships(2, [3, 4, 5], []);
   test('The ship will not be hit if a hit location is outside of the ship position array', () => {
     expect(testShip.hit(1)).toEqual([1, 'Missed!']);
   });
