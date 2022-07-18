@@ -1,16 +1,22 @@
 class Ships {
-  constructor(length, hitLocation, isSunk) {
+  constructor(length, position, hitLocation, sunk) {
     this.length = length;
+    this.position = position;
     this.hitLocation = hitLocation;
-    this.isSunk = isSunk;
+    this.sunk = sunk;
   }
 
-  hit() {
-    return this.isSunk;
+  hit(location) {
+    if (this.position.includes(location)) {
+      this.hitLocation.push(location);
+      return [location, 'Hit!'];
+    }
+    return [location, 'Missed!'];
   }
 
   get isSunk() {
-    return this.isSunk;
+    if (this.position.length === this.hitLocation.length) this.sunk = true;
+    return this.sunk;
   }
 }
 
