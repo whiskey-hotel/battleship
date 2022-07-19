@@ -20,7 +20,7 @@ class Gameboard {
       return true; // a continue statement for 'every' array method
     });
 
-    if (!this.missedShots.includes(value[0])) this.missedShots.push(value[0]);
+    if (value[1] === 'Missed!' && !this.missedShots.includes(value[0])) this.missedShots.push(value[0]);
     return value;
   }
 }

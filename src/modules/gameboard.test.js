@@ -11,8 +11,10 @@ describe('Gameboard objects', () => {
   });
 
   test('All missed shots should save to missedShots property in Gameboard class', () => {
+    testGame.recieveAttack(1);
     testGame.recieveAttack(12);
-    expect(testGame.missedShots).toEqual([12]);
+    testGame.recieveAttack(5);
+    expect(testGame.missedShots).toEqual([1, 12]);
   });
 
   test('An attack should read allShips and determine if the input attack coordinate hits a Ships position', () => {
