@@ -1,8 +1,8 @@
 class Ships {
-  constructor(length, position, hitLocation) {
-    this.length = length;
+  constructor(position) {
     this.position = position;
-    this.hitLocation = hitLocation;
+    this.length = position.length;
+    this.hitLocation = [];
     this.sunk = false;
   }
 
