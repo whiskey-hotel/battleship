@@ -20,4 +20,17 @@ describe('Gameboard objects', () => {
   test('An attack should read allShips and determine if the input attack coordinate hits a Ships position', () => {
     expect(testGame.recieveAttack(8)).toEqual([8, 'Hit!']);
   });
+
+  test('Check if all your ships have sunk', () => {
+    testGame.recieveAttack(3);
+    testGame.recieveAttack(4);
+    testGame.recieveAttack(5);
+    testGame.recieveAttack(7);
+    testGame.recieveAttack(8);
+    testGame.recieveAttack(9);
+    testGame.recieveAttack(10);
+    testGame.recieveAttack(13);
+    testGame.recieveAttack(16);
+    expect(testGame.allShipsSunk()).toEqual(true);
+  });
 });

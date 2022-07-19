@@ -7,7 +7,7 @@ class Ships {
   }
 
   hit(location) {
-    if (this.position.includes(location)) {
+    if (this.position.includes(location) && !this.hitLocation.includes(location)) {
       this.hitLocation.push(location);
       return [location, 'Hit!'];
     }

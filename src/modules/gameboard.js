@@ -20,8 +20,13 @@ class Gameboard {
       return true; // a continue statement for 'every' array method
     });
 
-    if (value[1] === 'Missed!' && !this.missedShots.includes(value[0])) this.missedShots.push(value[0]);
+    if (value[1] === 'Missed!' && !this.missedShots.includes(value[0])) { this.missedShots.push(value[0]); }
+    // Duplicate hits are being added to the missed shots array
     return value;
+  }
+
+  allShipsSunk() {
+    return this.allShips.every((ship) => ship.isSunk);
   }
 }
 
