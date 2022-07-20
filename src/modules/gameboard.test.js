@@ -14,11 +14,16 @@ describe('Gameboard objects', () => {
     testGame.recieveAttack(1);
     testGame.recieveAttack(12);
     testGame.recieveAttack(5);
-    expect(testGame.missedShots).toEqual([1, 12]);
+    expect(testGame.missedAttacks).toEqual([1, 12]);
   });
 
   test('An attack should read allShips and determine if the input attack coordinate hits a Ships position', () => {
     expect(testGame.recieveAttack(8)).toEqual([8, 'Hit!']);
+  });
+
+  test('A duplicate attack should not inlcude additional attack logic', () => {
+    testGame.recieveAttack(8);
+    expect(testGame.missedAttacks.includes(8)).toBeFalsy();
   });
 
   test('Check if all your ships have sunk', () => {
