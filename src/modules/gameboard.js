@@ -27,9 +27,7 @@ class Gameboard {
       return true; // a continue statement for 'every' array method
     });
 
-    if (value[1] === 'Missed!' && !this.missedAttacks.includes(value[0])) {
-      this.missedAttacks.push(value[0]);
-    }
+    if (value[1] === 'Missed!') this.missedAttacks.push(value[0]);
     return value;
   }
 
