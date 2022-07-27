@@ -2,9 +2,9 @@ import Gameboard from './gameboard';
 
 describe('Gameboard objects', () => {
   const testGame = new Gameboard();
-  testGame.addShip([3, 4, 5]);
-  testGame.addShip([7, 8, 9]);
-  testGame.addShip([10, 13, 16]);
+  testGame.addShip([3, 4, 5], 'Destroyer', 3);
+  testGame.addShip([7, 8, 9], 'Submarine', 3);
+  testGame.addShip([10, 13, 16, 19, 22], 'Carrier', 5);
 
   test('All ship objects should be saved to allShips property', () => {
     expect(testGame.allShips.length).toEqual(3);
@@ -36,6 +36,8 @@ describe('Gameboard objects', () => {
     testGame.recieveAttack(10);
     testGame.recieveAttack(13);
     testGame.recieveAttack(16);
+    testGame.recieveAttack(19);
+    testGame.recieveAttack(22);
     expect(testGame.allShipsSunk()).toEqual(true);
   });
 });
