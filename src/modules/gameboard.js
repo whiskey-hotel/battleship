@@ -14,7 +14,7 @@ class Gameboard {
   }
 
   coordinateValidation(coordinates) {
-    if (coordinates > this.gameBoardMinCoordinate && coordinates < this.gameBoardMaxCoordinate) {
+    if (coordinates >= this.gameBoardMinCoordinate && coordinates < this.gameBoardMaxCoordinate) {
       return true;
     }
     return false;
@@ -29,7 +29,7 @@ class Gameboard {
   }
 
   recieveAttack(attackCoordinates) {
-    if (!this.coordinateValidation(attackCoordinates)) return 'Invalid Coordinates';
+    if (!this.coordinateValidation(attackCoordinates)) return 'Invalid coordinates';
     if (!this.duplicateAttackValidation(attackCoordinates)) return 'Duplicate attack!';
 
     let shipObjectResult = [];

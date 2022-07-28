@@ -11,18 +11,18 @@ class Player {
     // while (this.playerBoard.allShips.length !== Object.keys(this.fleet).length) {
     // const ship = prompt('Which ship do you want to place?'); //
     // const coordinates = prompt('Where do you want to place the ship?'); //
-    this.playerBoard.addShip(coordinates, ship, this.fleet.ship);
+    this.playerBoard.addShip(coordinates, ship, this.fleet[ship]);
     // }
   }
 
   attack(coordinates) {
-    this.playerBoard.recieveAttack(coordinates);
+    return this.playerBoard.recieveAttack(coordinates);
   }
 
   cpuAttack() {
     const MAX_NUMBER_BOARD_POSITIONS = 100;
     const generatedCoordinates = Math.floor(Math.random() * MAX_NUMBER_BOARD_POSITIONS);
-    this.playerBoard.recieveAttack(generatedCoordinates);
+    return this.playerBoard.recieveAttack(generatedCoordinates);
   }
 }
 
