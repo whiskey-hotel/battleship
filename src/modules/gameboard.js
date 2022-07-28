@@ -5,6 +5,8 @@ class Gameboard {
     this.allAttacks = [];
     this.missedAttacks = [];
     this.allShips = [];
+    this.gameBoardMinCoordinate = 0;
+    this.gameBoardMaxCoordinate = 100;
   }
 
   addShip(position, ship, length) {
@@ -12,18 +14,23 @@ class Gameboard {
   }
 
   coordinateValidation(coordinates) {
-    if (coordinates > 0 && coordinates < 100) return true;
+    if (coordinates > this.gameBoardMinCoordinate && coordinates < this.gameBoardMaxCoordinate) {
+      return true;
+    }
+    return false;
+  }
+
+  duplicateAttackValidation(Coordinates) {
+    if (!this.allAttacks.includes(Coordinates)) {
+      this.allAttacks.push(Coordinates);
+      return true;
+    }
     return false;
   }
 
   recieveAttack(attackCoordinates) {
     if (!this.coordinateValidation(attackCoordinates)) return 'Invalid Coordinates';
-
-    if (!this.allAttacks.includes(attackCoordinates)) {
-      this.allAttacks.push(attackCoordinates);
-    } else {
-      return 'Duplicate attack!';
-    }
+    if (!this.duplicateAttackValidation(attackCoordinates)) return 'Duplicate attack!';
 
     let shipObjectResult = [];
     this.allShips.every((ship) => {

@@ -7,12 +7,12 @@ class Player {
     this.playerBoard = new Gameboard();
   }
 
-  setupBoard() {
-    while (this.playerBoard.allShips.length !== Object.keys(this.fleet).length) {
-      const ship = prompt('Which ship do you want to place?'); //
-      const coordinates = prompt('Where do you want to place the ship?'); //
-      this.playerBoard.addShip(coordinates, ship, this.fleet.ship);
-    }
+  setupBoard(ship, coordinates) {
+    // while (this.playerBoard.allShips.length !== Object.keys(this.fleet).length) {
+    // const ship = prompt('Which ship do you want to place?'); //
+    // const coordinates = prompt('Where do you want to place the ship?'); //
+    this.playerBoard.addShip(coordinates, ship, this.fleet.ship);
+    // }
   }
 
   attack(coordinates) {
