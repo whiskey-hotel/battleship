@@ -1,5 +1,5 @@
 class Ships {
-  constructor(position, type, length) {
+  constructor(position = [], type = '', length = 0) {
     this.shipPosition = position;
     this.length = length;
     this.type = type;
