@@ -3,7 +3,7 @@ import Gameboard from './gameboard';
 class Player {
   player: string;
   fleet: object;
-  playerBoard: any;
+  playerBoard: Gameboard;
 
   constructor(name: string) {
     this.player = name;
@@ -11,7 +11,7 @@ class Player {
     this.playerBoard = new Gameboard();
   }
 
-  setupBoard(ship: string, coordinates: number) {
+  setupBoard(ship: string, coordinates: number[]) {
     // while (this.playerBoard.allShips.length !== Object.keys(this.fleet).length) {
     // const ship = prompt('Which ship do you want to place?'); //
     // const coordinates = prompt('Where do you want to place the ship?'); //

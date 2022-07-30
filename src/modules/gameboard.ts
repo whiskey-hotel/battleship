@@ -1,6 +1,12 @@
-import Ships from './ships.ts';
+import { Ships, IShips } from './ships';
 
 class Gameboard {
+  allAttacks: number[];
+  missedAttacks: number[];
+  allShips: IShips[];
+  gameBoardMinCoordinate: number;
+  gameBoardMaxCoordinate: number;
+
   constructor() {
     this.allAttacks = [];
     this.missedAttacks = [];
@@ -9,18 +15,18 @@ class Gameboard {
     this.gameBoardMaxCoordinate = 100;
   }
 
-  addShip(position, ship, length) {
+  addShip(position: number[], ship: string, length: number) {
     this.allShips.push(new Ships(position, ship, length));
   }
 
-  coordinateValidation(coordinates) {
+  coordinateValidation(coordinates: number) {
     if (coordinates >= this.gameBoardMinCoordinate && coordinates < this.gameBoardMaxCoordinate) {
       return true;
     }
     return false;
   }
 
-  duplicateAttackValidation(Coordinates) {
+  duplicateAttackValidation(Coordinates: number) {
     if (!this.allAttacks.includes(Coordinates)) {
       this.allAttacks.push(Coordinates);
       return true;
@@ -28,10 +34,10 @@ class Gameboard {
     return false;
   }
 
-  recieveAttack(attackCoordinates) {
+  recieveAttack(attackCoordinates: number) {
     if (!this.coordinateValidation(attackCoordinates)) return 'Invalid coordinates';
     if (!this.duplicateAttackValidation(attackCoordinates)) return 'Duplicate attack!';
-    let shipObjectResult = [];
+    let shipObjectResult: [number, string];
     this.allShips.every((ship) => {
       shipObjectResult = ship.hit(attackCoordinates);
       if (shipObjectResult[1] === 'Hit!') {
