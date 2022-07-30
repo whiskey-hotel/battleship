@@ -1,6 +1,12 @@
 class Ships {
-  constructor(position = [], type = '', length = 0) {
-    this.shipPosition = position;
+  shipPosition: number[];
+  length: number;
+  type: string;
+  hitLocation: number[];
+  sunk: boolean;
+
+  constructor(shipPosition: number[], type: string, length: number) {
+    this.shipPosition = shipPosition;
     this.length = length;
     this.type = type;
     this.hitLocation = [];
@@ -16,9 +22,10 @@ class Ships {
   }
 
   get isSunk() {
-    if (this.shipPosition.length === this.hitLocation.length) this.sunk = true;
+    if (this.shipPosition.length === this.hitLocation.length) {
+      this.sunk = true;
+    }
     return this.sunk;
   }
 }
-
 export default Ships;

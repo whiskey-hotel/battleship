@@ -1,4 +1,4 @@
-import Ships from './ships';
+import Ships from './ships.ts';
 
 class Gameboard {
   constructor() {
@@ -31,7 +31,6 @@ class Gameboard {
   recieveAttack(attackCoordinates) {
     if (!this.coordinateValidation(attackCoordinates)) return 'Invalid coordinates';
     if (!this.duplicateAttackValidation(attackCoordinates)) return 'Duplicate attack!';
-
     let shipObjectResult = [];
     this.allShips.every((ship) => {
       shipObjectResult = ship.hit(attackCoordinates);
@@ -40,7 +39,6 @@ class Gameboard {
       }
       return true; // a continue statement for 'every' array method
     });
-
     if (shipObjectResult[1] === 'Missed!') this.missedAttacks.push(shipObjectResult[0]);
     return shipObjectResult;
   }
@@ -49,5 +47,4 @@ class Gameboard {
     return this.allShips.every((ship) => ship.isSunk);
   }
 }
-
 export default Gameboard;
