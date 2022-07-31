@@ -1,4 +1,4 @@
-import { Ships } from './ships.ts';
+import { Ships } from './ships';
 
 describe('Ships objects', () => {
   const testShip = new Ships([3, 4, 5], 'Destroyer', 3);

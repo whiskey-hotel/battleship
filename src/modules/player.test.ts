@@ -18,7 +18,7 @@ describe('Player objects', () => {
   });
   test('Invalid coordinates will not attack', () => {
     expect(testPlayer.attack(101)).toEqual('Invalid coordinates');
-    expect(testPlayer.attack('attack')).toEqual('Invalid coordinates');
+    expect(testPlayer.attack(-1)).toEqual('Invalid coordinates');
     expect(testPlayer.attack(-1)).toEqual('Invalid coordinates');
   });
 });
