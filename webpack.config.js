@@ -6,9 +6,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    index: './src/index.js',
+    index: './src/index.ts',
   },
   devtool: 'inline-source-map',
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(dotenv.parsed),
@@ -25,7 +28,7 @@ module.exports = {
   module: {
     rules: [
       // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      { test: /\.ts?$/, loader: 'ts-loader' },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { test: /\.js$/, loader: 'source-map-loader' },
       {

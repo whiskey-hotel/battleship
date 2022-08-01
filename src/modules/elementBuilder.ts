@@ -1,12 +1,12 @@
 /* eslint-disable object-curly-newline */
 function newElement({ element = '', className = '', elementID = '', text = '', href = '', src = '', alt = '' }) {
   const DOMelement: HTMLElement = document.createElement(element);
-  if (className) { DOMelement.className = className; }
-  if (elementID) { DOMelement.id = elementID; }
-  if (text) { DOMelement.textContent = text; }
-  if (element === 'a' && href) { DOMelement.setAttribute('href', href); }
-  if (element === 'img' && src) { DOMelement.setAttribute('src', src); }
-  if (element === 'img' && alt) { DOMelement.setAttribute('alt', alt); }
+  if (className) DOMelement.className = className;
+  if (elementID) DOMelement.id = elementID;
+  if (text) DOMelement.textContent = text;
+  if (element === 'a' && href) DOMelement.setAttribute('href', href);
+  if (element === 'img' && src) DOMelement.setAttribute('src', src);
+  if (element === 'img' && alt) DOMelement.setAttribute('alt', alt);
   return DOMelement;
 }
 function sendToBody(HTML: HTMLElement) {
