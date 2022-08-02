@@ -8,6 +8,11 @@ module.exports = {
   entry: {
     index: './src/index.ts',
   },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
   devtool: 'inline-source-map',
   resolve: {
     extensions: ['.ts', '.js'],
@@ -19,12 +24,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Battleship',
     }),
+    new webpack.ProvidePlugin({
+      // inject ES5 modules as global vars
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+    }),
   ],
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  },
   module: {
     rules: [
       // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
@@ -37,7 +43,7 @@ module.exports = {
       },
       {
         test: /\.(scss)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
