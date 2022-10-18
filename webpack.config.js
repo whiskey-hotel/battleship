@@ -24,12 +24,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Battleship',
     }),
-    new webpack.ProvidePlugin({
-      // inject ES5 modules as global vars
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-    }),
   ],
   module: {
     rules: [
@@ -39,10 +33,6 @@ module.exports = {
       { test: /\.js$/, loader: 'source-map-loader' },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(scss)$/,
         use: ['style-loader', 'css-loader'],
       },
       {

@@ -9,7 +9,7 @@ export default function header(): HTMLElement {
 
   const headerText: HTMLElement = newElement({
     element: 'h1',
-    className: 'test',
+    className: 'header',
     elementID: 'header',
     text: 'Battleship!!',
   });
